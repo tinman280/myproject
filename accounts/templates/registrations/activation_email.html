@@ -1,0 +1,16 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Activation</title>
+</head>
+<body>
+    <h1>Activate Your Account</h1>
+    <p>Hello {{ user.username }},</p>
+    <p>Click the following link to activate your account:</p>
+    <p><a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">Activate your account</a></p>
+    <p>If you did not create an account on our website, please ignore this email.</p>
+</body>
+</html>

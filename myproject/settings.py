@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-&pou1#^ce*pvp=os345r#ymd#-j51&p_4uy+0)*!wuafj4-k@i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['www.gmail.com','gmail.com',
+                 'google.com','www.google.com','127.0.0.1','localhost',"*"]
 
 # Application definition
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "accounts",
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'myproject.urls'
@@ -127,3 +129,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "accounts.CustomUser"
 LOGIN_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = "/"
+
+
+AUTHENTICATION_BACKENDS=['social_core.backends.google.GoogleOAuth2']
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '109464848116-umfikhcaftdop221ad0dcpqo66i8142f.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
